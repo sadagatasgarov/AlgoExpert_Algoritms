@@ -1,6 +1,6 @@
 fn main() {
-    let competitions = vec![vec!["HTML", "C#"], vec!["HTML", "Python"], vec!["Python", "HTML"]];
-    let results = vec![1, 0, 1];
+    let competitions = vec![vec!["HTML", "C#"], vec!["HTML", "Python"], vec!["Python", "C#"]];
+    let results = vec![0, 0, 1];
     let winner = tournament_winner(competitions, results);
     println!("Tournament winner: {}", winner);
 }
@@ -19,7 +19,7 @@ fn tournament_winner(competitions: Vec<Vec<&str>>, results: Vec<i32>) -> String 
         let winning_team = if result == 1 { home_team } else { away_team };
 
         update_scores(winning_team, 3, &mut scores);
-
+        println!("{:?}", scores);
         if scores[winning_team] > scores[&current_best_team] {
             current_best_team = winning_team.to_string();
         }
@@ -29,6 +29,7 @@ fn tournament_winner(competitions: Vec<Vec<&str>>, results: Vec<i32>) -> String 
 }
 
 fn update_scores(team: &str, points: i32, scores: &mut std::collections::HashMap<String, i32>) {
-    let entry = scores.entry(team.to_string()).or_insert(0);
-    *entry += points;
+    let entr: &mut i32 = scores.entry(team.to_string()).or_insert(0);
+    println!("{}", entr);
+    *entr += points;
 }
