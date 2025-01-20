@@ -6,7 +6,10 @@ struct BinaryTree {
     right: Option<Box<BinaryTree>>,
 }
 
-fn branchSums(root: &BinaryTree) -> Vec<i32> {
+
+
+// O(n) time | O(n) space
+fn branch_sums(root: &BinaryTree) -> Vec<i32> {
     let mut a = Vec::new();
     calculate_branch_sum(root, 0, &mut a);
     a
@@ -61,7 +64,7 @@ fn main() {
     };
 
 
-    let a = branchSums(&bst);
+    let a = branch_sums(&bst);
     println!("{a:?}")
 
 }

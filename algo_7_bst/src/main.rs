@@ -72,6 +72,8 @@ struct BST {
     right: Option<Box<BST>>,
 }
 
+
+// FindClosestValue iteratively with O(n) time and O(1) space
 impl BST {
     // Find the closest value iteratively
     fn find_closest_value(&self, target: i32) -> i32 {
