@@ -1,0 +1,6 @@
+[package]
+name = "algo_9_nd"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
