@@ -22,8 +22,8 @@ fn evaluateExpressionTree(tree: &BinaryTree) -> i32 {
     match tree.value {
         -1 => lv + rv, // Addition
         -2 => lv - rv, // Subtraction
-        -3 => lv * rv, // Multiplication
-        -4 => lv / rv, // Division
+        -3 => lv / rv, // Division
+        -4 => lv * rv, // Multiplication
         _ => panic!("Invalid operator"),
     }
 }
