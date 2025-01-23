@@ -4,18 +4,18 @@ struct BinaryTree {
     right: Option<Box<BinaryTree>>,
 }
 
-fn evaluateExpressionTree(tree: &BinaryTree) -> i32 {
+fn evaluate_expression_tree(tree: &BinaryTree) -> i32 {
     if tree.value >= 0 {
         return tree.value;
     }
 
     let lv = match &tree.left {
-        Some(left) => evaluateExpressionTree(left),
+        Some(left) => evaluate_expression_tree(left),
         None => panic!("Left subtree is missing"),
     };
 
     let rv = match &tree.right {
-        Some(right) => evaluateExpressionTree(right),
+        Some(right) => evaluate_expression_tree(right),
         None => panic!("Right subtree is missing"),
     };
 
@@ -44,6 +44,6 @@ fn main() {
         })),
     };
 
-    let result = evaluateExpressionTree(&root);
+    let result = evaluate_expression_tree(&root);
     println!("Result: {}", result); // Output: 5
 }
